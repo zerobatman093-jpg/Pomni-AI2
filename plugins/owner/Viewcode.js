@@ -5,14 +5,9 @@ const handler = async (m, { conn, bot, text, command }) => {
     try {
         if (!m.isOwner) return m.reply('❌ هذا الأمر مخصص للمطور فقط.');
 
-        if (!text) {
-    return m.reply(
-`_🕸 طريقه الاستخدام_
-
-*.${command} اسم_الملف*
+        if (!text) return m.reply(
+`_🕸 طريقه الاستخدام_ — *.${command} اسم_الملف*
 > مثال : .${command} menu`
-);
-}
 
         const base = bot.config?.commandsPath || './plugins';
         const targetName = text.trim().replace(/\.js$/, '');
